@@ -1,0 +1,23 @@
+{
+  "name": "(fontsize)",
+  "version": "1.0.0",
+  "description": "\"this plugin allow increase and decrease font size\"",
+  "main": "''",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardotessaroalves/fontsize.git"
+  },
+  "keywords": [
+    "fontSize",
+    "mobility"
+  ],
+  "author": " <leonardotessaroalves@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonardotessaroalves/fontsize/issues"
+  },
+  "homepage": "https://github.com/leonardotessaroalves/fontsize#readme"
+}
