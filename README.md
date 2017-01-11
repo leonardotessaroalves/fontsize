@@ -24,4 +24,8 @@ $(document).ready(function(){
     $('.mySelector').fontSize();
 });
 ```
+
+[DEMO](https://leonardotessaroalves.github.io/fontsize/)
+
+
 [Autor: Leonardo Tessaro](mailto:leonardotessaroalves@gmail.com)
