@@ -7,7 +7,7 @@ Plugin for font-sizes and resize.
 npm install --save font-size-actions
 
 import $ from 'jquery';
-import fontSize from 'fontsize';
+import fontSize from 'font-size-actions';
 ```
 Or just add the following lines:
 
@@ -21,7 +21,7 @@ Or just add the following lines:
 <button class="mySelector" data-font-action="fontDown"></button>
 
 $(document).ready(function(){
-    $('.mySelector').fontsize();
+    $('.mySelector').fontSize();
 });
 ```
 [Autor: Leonardo Tessaro](mailto:leonardotessaroalves@gmail.com)
