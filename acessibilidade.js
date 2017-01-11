@@ -45,7 +45,7 @@
 
     Axessivel.prototype.trigger = function(e) {
         var self = this;
-        switch (e.data('action')) {
+        switch (e.data('axess-action')) {
             case 'fontUp':
                 return self.fontIncrease();
                 break;
@@ -66,7 +66,7 @@
 
             var args = $(this).data('Axess') || {};
 
-            var data = $(this).parent().data('p-acessivel') || {};
+            var data = $(this).parent().data('axess-filter') || {};
 
             var defaults = {
                 minFontSize: self.options.minFontSize,
@@ -82,9 +82,9 @@
 
             $(this).data({ filterSize: objectData });
 
-            console.log($(this).data('filterSize'));
+            self.changeFontSize($(this), +(self.options.tick));
 
-            self.changeFontSize($(this), (0 + self.options.tick));
+            console.log($(this).data('filterSize'));
 
         });
 
@@ -97,7 +97,7 @@
 
             var args = $(this).data('Axess') || {};
 
-            var data = $(this).parent().data('p-acessivel') || {};
+            var data = $(this).parent().data('axess-filter') || {};
 
             var defaults = {
                 minFontSize: self.options.minFontSize,
@@ -113,9 +113,7 @@
 
             $(this).data({ filterSize: objectData });
 
-            console.log($(this).data('filterSize'));
-
-            self.changeFontSize($(this), (0 - self.options.tick));
+            self.changeFontSize($(this), -(self.options.tick));
 
         });
 
@@ -125,7 +123,7 @@
         var self = this;
         var cur = $el.data('filterSize').currentSize;
         var newSize = cur + calc;
-        if (newSize > $el.data('filterSize').minFontSize && newSize < $el.data('filterSize').maxFontSize) {
+        if (newSize >= $el.data('filterSize').minFontSize && newSize <= $el.data('filterSize').maxFontSize) {
             $el.css('font-size', newSize);
             $.extend($el.data('filterSize'), { currentSize: newSize });
         }
