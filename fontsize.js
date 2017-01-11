@@ -9,10 +9,10 @@
     }
 }(function($) {
     'use strict';
-    var fontsize = window.fontsize || {};
+    var fontSize = window.fontSize || {};
 
-    fontsize = (function() {
-        function fontsize(element, settings) {
+    fontSize = (function() {
+        function fontSize(element, settings) {
             var self = this,
                 dataSettings, defaults;
 
@@ -23,7 +23,7 @@
                 tick: 1
             };
 
-            dataSettings = $(element).data('fontsize') || {};
+            dataSettings = $(element).data('fontSize') || {};
 
             self.options = $.extend({}, defaults, settings, dataSettings);
 
@@ -31,11 +31,11 @@
 
             self.init();
         }
-        return fontsize;
+        return fontSize;
 
     }());
 
-    fontsize.prototype.init = function() {
+    fontSize.prototype.init = function() {
         var self = this;
 
         $(self.$axess).bind('click', function() {
@@ -43,7 +43,7 @@
         });
     };
 
-    fontsize.prototype.trigger = function(e) {
+    fontSize.prototype.trigger = function(e) {
         var self = this;
         switch (e.data('font-action')) {
             case 'fontUp':
@@ -55,11 +55,11 @@
         }
     };
 
-    fontsize.prototype.getElementsBody = function(e, callback) {
+    fontSize.prototype.getElementsBody = function(e, callback) {
         $.each(e, callback);
     };
 
-    fontsize.prototype.fontIncrease = function() {
+    fontSize.prototype.fontIncrease = function() {
         var self = this;
 
         self.getElementsBody($(self.options.selectors), function(e) {
@@ -84,13 +84,11 @@
 
             self.changeFontSize($(this), +(self.options.tick));
 
-            console.log($(this).data('filterSize'));
-
         });
 
     };
 
-    fontsize.prototype.fontDecrease = function() {
+    fontSize.prototype.fontDecrease = function() {
         var self = this;
 
         self.getElementsBody($(self.options.selectors), function(e) {
@@ -119,7 +117,7 @@
 
     };
 
-    fontsize.prototype.changeFontSize = function($el, calc) {
+    fontSize.prototype.changeFontSize = function($el, calc) {
         var self = this;
         var cur = $el.data('filterSize').currentSize;
         var newSize = cur + calc;
@@ -129,7 +127,7 @@
         }
     }
 
-    $.fn.fontsize = function() {
+    $.fn.fontSize = function() {
         var self = this,
             opt = arguments[0],
             args = Array.prototype.slice.call(arguments, 1),
@@ -138,9 +136,9 @@
             ret;
         for (i = 0; i < l; i++) {
             if (typeof opt == 'object' || typeof opt == 'undefined')
-                self[i].fontsize = new fontsize(self[i], opt);
+                self[i].fontSize = new fontSize(self[i], opt);
             else
-                ret = self[i].fontsize[opt].apply(self[i].fontsize, args);
+                ret = self[i].fontSize[opt].apply(self[i].fontSize, args);
             if (typeof ret != 'undefined') return ret;
         }
         return self;
