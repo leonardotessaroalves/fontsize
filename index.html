@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 
-<div data-axess-filter='{"maxFontSize":40}'>
-    <button class="myClass" data-axess-action="fontUp">aumenta</button>
-    <button class="myClass" data-axess-action="fontDown">diminui</button>
+<div data-font-filter='{"maxFontSize":40}'>
+    <button class="myClass" data-font-action="fontUp">aumenta</button>
+    <button class="myClass" data-font-action="fontDown">diminui</button>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quia, inventore, possimus et aliquid minima quo libero qui nulla nisi at enim quis modi alias debitis dolorum labore animi maxime!</p>
 </div>
 
@@ -17,7 +17,7 @@
     <script src="./acessibilidade.js"></script>
     <script>
         $(document).ready(function() {
-            $('.myClass').Axessivel();
+            $('.myClass').fontsize();
         });
     </script>
 </body>

@@ -9,10 +9,10 @@
     }
 }(function($) {
     'use strict';
-    var Axessivel = window.Axessivel || {};
+    var fontsize = window.fontsize || {};
 
-    Axessivel = (function() {
-        function Axessivel(element, settings) {
+    fontsize = (function() {
+        function fontsize(element, settings) {
             var self = this,
                 dataSettings, defaults;
 
@@ -23,7 +23,7 @@
                 tick: 1
             };
 
-            dataSettings = $(element).data('Axessivel') || {};
+            dataSettings = $(element).data('fontsize') || {};
 
             self.options = $.extend({}, defaults, settings, dataSettings);
 
@@ -31,11 +31,11 @@
 
             self.init();
         }
-        return Axessivel;
+        return fontsize;
 
     }());
 
-    Axessivel.prototype.init = function() {
+    fontsize.prototype.init = function() {
         var self = this;
 
         $(self.$axess).bind('click', function() {
@@ -43,9 +43,9 @@
         });
     };
 
-    Axessivel.prototype.trigger = function(e) {
+    fontsize.prototype.trigger = function(e) {
         var self = this;
-        switch (e.data('axess-action')) {
+        switch (e.data('font-action')) {
             case 'fontUp':
                 return self.fontIncrease();
                 break;
@@ -55,18 +55,18 @@
         }
     };
 
-    Axessivel.prototype.getElementsBody = function(e, callback) {
+    fontsize.prototype.getElementsBody = function(e, callback) {
         $.each(e, callback);
     };
 
-    Axessivel.prototype.fontIncrease = function() {
+    fontsize.prototype.fontIncrease = function() {
         var self = this;
 
         self.getElementsBody($(self.options.selectors), function(e) {
 
             var args = $(this).data('Axess') || {};
 
-            var data = $(this).parent().data('axess-filter') || {};
+            var data = $(this).parent().data('font-filter') || {};
 
             var defaults = {
                 minFontSize: self.options.minFontSize,
@@ -90,14 +90,14 @@
 
     };
 
-    Axessivel.prototype.fontDecrease = function() {
+    fontsize.prototype.fontDecrease = function() {
         var self = this;
 
         self.getElementsBody($(self.options.selectors), function(e) {
 
             var args = $(this).data('Axess') || {};
 
-            var data = $(this).parent().data('axess-filter') || {};
+            var data = $(this).parent().data('font-filter') || {};
 
             var defaults = {
                 minFontSize: self.options.minFontSize,
@@ -119,7 +119,7 @@
 
     };
 
-    Axessivel.prototype.changeFontSize = function($el, calc) {
+    fontsize.prototype.changeFontSize = function($el, calc) {
         var self = this;
         var cur = $el.data('filterSize').currentSize;
         var newSize = cur + calc;
@@ -129,7 +129,7 @@
         }
     }
 
-    $.fn.Axessivel = function() {
+    $.fn.fontsize = function() {
         var self = this,
             opt = arguments[0],
             args = Array.prototype.slice.call(arguments, 1),
@@ -138,9 +138,9 @@
             ret;
         for (i = 0; i < l; i++) {
             if (typeof opt == 'object' || typeof opt == 'undefined')
-                self[i].Axessivel = new Axessivel(self[i], opt);
+                self[i].fontsize = new fontsize(self[i], opt);
             else
-                ret = self[i].Axessivel[opt].apply(self[i].Axessivel, args);
+                ret = self[i].fontsize[opt].apply(self[i].fontsize, args);
             if (typeof ret != 'undefined') return ret;
         }
         return self;
