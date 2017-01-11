@@ -10,6 +10,7 @@ import $ from 'jquery';
 import fontSize from 'fontsize';
 ```
 Or just add the following lines:
+
 `<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>`
 `<script src="./fontsize.js"></script>`
 
