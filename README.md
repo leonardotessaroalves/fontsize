@@ -4,7 +4,7 @@ Plugin for font-sizes and resize.
 
 ### How to use
 ```sh
-npm install --save fontsize
+npm install --save font-size-actions
 
 import $ from 'jquery';
 import fontSize from 'fontsize';
